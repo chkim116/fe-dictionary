@@ -41,8 +41,8 @@ export async function actMainGlossariesSearchFetch({
   const glossaries = await fetchMainGlossariesUiStates();
 
   if (keyword) {
-    return glossaries.filter(({ slugName: glossary }) => {
-      return glossary.includes(keyword);
+    return glossaries.filter(({ slugName }) => {
+      return slugName.includes(keyword);
     });
   }
 
@@ -51,8 +51,8 @@ export async function actMainGlossariesSearchFetch({
   const letterSet = new Set(MAIN_SEARCH_LETTER_LIST[toNumber(tabKey, 0)]);
 
   if (letterSet.size > 0) {
-    glossariesByTabKey = glossaries.filter(({ slugName: glossary }) => {
-      const firstLetter = glossary.slice(0, 1);
+    glossariesByTabKey = glossaries.filter(({ slugName }) => {
+      const firstLetter = slugName.slice(0, 1);
       return letterSet.has(toLowerCase(firstLetter));
     });
   }

@@ -19,3 +19,12 @@
   @apply mb-8;
   max-width: 100%;
 }
+
+.markdown ul {
+  ol,
+  li {
+    a {
+      margin: 0;
+    }
+  }
+}
