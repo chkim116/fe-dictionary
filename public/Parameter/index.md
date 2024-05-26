@@ -1,5 +1,5 @@
 ---
-title: 'parameter (매개변수)'
+title: 'Parameter (매개변수)'
 date: '2024-02-10'
 spoiler: 'parameter는 함수를 정의할 때 괄호 안에 작성된 변수를 의미합니다.'
 category: ''
