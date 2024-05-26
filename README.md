@@ -17,3 +17,5 @@
 - [ ] 이슈 템플릿 작업
 - [ ] playground 페이지
 - [ ] 각 markdown 간 related 문서 자동화
+- [ ] 검색 최적화 (content, title에 대한 검색 지원 + 한글and영어 간 검색 지원)
+- [ ] 한글 명칭 frontmatter 추가
