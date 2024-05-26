@@ -4,8 +4,8 @@ interface Env {
 }
 
 const env: Env = {
-  repoURL: 'https://github.com/chkim116/dev-dictionary',
-  cwd: process.cwd()
+  repoURL: 'https://github.com/chkim116/fe-dictionary',
+  cwd: process.cwd(),
 };
 
 export default env;

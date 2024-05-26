@@ -1,10 +1,11 @@
 'use server';
 import 'server-only';
 
+import { cache } from 'react';
 import { replace, toLowerCase, toNumber } from 'safers';
 import {
-  asyncReadFolderNames,
   asyncReadFileWithSlug,
+  asyncReadFolderNames,
 } from '@core/lib/readFileWithSlug';
 import 'server-only';
 import { MAIN_SEARCH_LETTER_LIST } from '../constants/main.const';
@@ -13,7 +14,7 @@ import {
   MainGlossariesUiState,
 } from '../uiStates/main.uiState';
 
-async function fetchMainGlossariesUiStates() {
+const fetchMainGlossariesUiStates = cache(async () => {
   const glossaries: MainGlossariesUiState[] = [];
 
   try {
@@ -32,7 +33,7 @@ async function fetchMainGlossariesUiStates() {
   } catch (error) {
     return glossaries;
   }
-}
+});
 
 export async function actMainGlossariesSearchFetch({
   keyword,
