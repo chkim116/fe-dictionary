@@ -1,10 +1,10 @@
 import { readFile, readdir } from 'fs/promises';
+import path from 'path';
 import matter from 'gray-matter';
-import env from '@core/env';
 
 async function importPostComponents(slug: string) {
   try {
-    return await import(env.cwd + '/public/' + slug + '/components.js');
+    return await import(path.resolve('/public/' + slug + '/components.js'));
   } catch (error) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     if (!error || (error as any).code !== 'MODULE_NOT_FOUND') {
@@ -16,7 +16,7 @@ async function importPostComponents(slug: string) {
 export async function asyncReadFileWithSlug(slug: string) {
   const decodedSlug = decodeURIComponent(slug);
 
-  const filename = env.cwd + '/public/' + decodedSlug + '/index.md';
+  const filename = path.resolve('./public', decodedSlug + '/index.md');
   const file = await readFile(filename, 'utf8');
 
   const postComponents = await importPostComponents(decodedSlug);
@@ -31,7 +31,7 @@ export async function asyncReadFileWithSlug(slug: string) {
 }
 
 export async function asyncReadFolderNames() {
-  const publicFolderPath = env.cwd + '/public';
+  const publicFolderPath = path.resolve('./public');
 
   const folderNames = await readdir(publicFolderPath, { withFileTypes: true })
     .then((dirents) =>

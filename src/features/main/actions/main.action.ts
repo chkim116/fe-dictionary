@@ -43,7 +43,7 @@ export async function actMainGlossariesSearchFetch({
 
   if (keyword) {
     return glossaries.filter(({ slugName }) => {
-      return slugName.includes(keyword);
+      return slugName.toLowerCase().includes(keyword.toLowerCase());
     });
   }
 
